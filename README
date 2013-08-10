@@ -1,0 +1,24 @@
+Advanced-Virtual-Digest
+=======================
+
+A GAE web app for virtual restriction digests, pulls vector and enzyme information from addgene, includes ability to store sequences and autocomplete for vectors and enzymes
+
+This is still a work in progress, and the code is messy. I made this in a rush to help with lab work, I promise to clean it up soon!
+
+Current features:
+
+*Favorite Sequence Storage
+*Autofill form fields for vectors and restriction enzymes
+*Sequence scraper for all addgene backbone sequences and restriction enzymes
+*Ability to do custom digests, map all restriction sites, remove an insert without cutting within it and linearizing sequences.
+*Able to insert DNA sequences into vectors given insert sites
+
+To be done:
+*Unit tests
+*Cron job to update vector database
+*A better interface
+*Vector map creation
+*Agarose gel predictor
+*Offload cutting to backends in order to improve efficiency
+
+Everything is released with an MIT license, feel free to improve this or criticize!

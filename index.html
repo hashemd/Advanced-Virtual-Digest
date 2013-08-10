@@ -1,0 +1,67 @@
+<html>
+  
+  <head>
+	<title>
+      Duennwald Lab
+      </title>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js" >
+      </script>
+      <script type="text/javascript" src="/json/magicsuggest-1.3.0-min.js">
+      </script>
+      <link rel="stylesheet" type="text/css" href="/json/magicsuggest-1.3.0-min.css">
+      <html lang="en">
+        
+        <style type"text/css">
+          .darkText{
+            color: #333;
+            font-style: italic;
+          }
+        </style>
+        
+      </head>
+      <body>
+        
+        <form id="test" action="results" method = "post">
+          <h1>
+			Duennwald Lab Vector-Digest
+      </h1>
+      <h3>
+        If both a DNA sequence and a vector are specified the sequence will be automatically inserted in between the sites specified for all options.
+      </h3>
+      <input id="digest_name" style="width:400px;" type="text" name="digest_name"/>
+      <p style="margin: 5px 5px 5px 5px">
+      </p>
+      <input id="sequence" style="width:400px;" type="text" name="sequence"/>
+      <p style="margin: 5px 5px 5px 5px">
+      </p>
+      <input id="vec_name" style="width:400px;" type="text" name="vec_names"/>
+      <p style="margin: 5px 5px 5px 5px">
+      </p>
+      <input id="rest_sites" style="width:400px;" type="text" name="rest_sites"/>
+      <p style="margin: 5px 5px 5px 5px">
+      </p>
+      <input id="options" style="width:400px;" type="text" name="options"/>
+      <p style="margin: 5px 5px 5px 5px">
+      </p>
+      <input id="enzymes" style="width:400px;" type="text" name="enzymes"/>
+      <p style="margin: 5px 5px 5px 5px">
+      </p>
+      <input id="shape" style="width:400px;" type="text" name="shape"/>
+      <p>
+        <span style="float:left;">
+          <input name="Submit" type="submit" value="Digest" />
+        </form>
+      </span>
+      <form action="sequences" method="get">
+        <input name="Submit" type="submit" value="View saved sequences"/>
+      </form>
+      
+      <h5>
+        Caution: A small number of Gateway Cloning (pAG) vectors have single base mutations in the att recognition sites, as a result specifying att sites may result in an error (unlikely). If an error occurs your only option is to use any available unique restriction sites that surround the att sites. It does not matter if the restriction site cuts into your sequence.
+      </h5>
+      <script type="text/javascript" src="/json/index.js">
+      </script>
+      </body>
+  </html>
+  

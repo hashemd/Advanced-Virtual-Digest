@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>
+      "Duennwald Digest Tool - Results"
+  </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <html lang="en">
+  </head>
+  
+  <style type"text/css">
+    fieldset
+    {
+      float: left;
+    }
+  </style>
+  
+  <body>
+    <h1>
+      Duennwald Lab Digest Tool 
+    </h1>
+    
+    {% if results[0] %}
+    <p>
+      <h4>
+        {{title}} 
+    </h4>
+  </p>
+  
+  <table cellpadding=5 style="table-layout: fixed; width: 100%">
+    {%for heading in headings %}
+    <th align=left>
+      {{heading}} 
+    </th>
+    {% endfor %}
+    
+    {% for result in results[0] %}
+    <tr {{ loop.cycle('bgcolor="whitesmoke"', 'bgcolor="white"') }} valign=TOP>
+      <td style="word-wrap: break-word">
+        {{result[0]}} 
+      </td>
+      <td style="word-wrap: break-word">
+        {% for val in result[1] %}
+        {{val}}
+        <br />
+        {% endfor %} 
+      </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h4>
+      No single commercially available restriction enzyme will remove the insert from the vector. 
+    </h4>
+    {% endif %}
+  </table>
+  
+  {% if instruction == 'digest_rem' %}
+  
+  <table cellpadding=5 style="table-layout: fixed; width: 50%; float: left;">
+    <th align=left>
+      5' Enzymes: 
+    </th>
+    {% for result in results[1] %}
+    <tr {{ loop.cycle('bgcolor="whitesmoke"', 'bgcolor="white"') }} valign=TOP>
+      <td style="word-wrap: break-word">
+        {{result}} 
+      </td>
+      {% endfor %}
+      
+      <br>
+      <h4>
+        The following enzymes will cut 5' or 3' of your sequence but not within it.
+      </h4>
+      <br>
+      
+      <table cellpadding=5 style="table-layout: fixed; width: 50%; float: left;">
+        <th align=left>
+          3' Enzymes: 
+        </th>
+        {% for result in results[2] %}
+        <tr {{ loop.cycle('bgcolor="whitesmoke"', 'bgcolor="white"') }} valign=TOP>
+          <td style="word-wrap: break-word">
+            {{result}} 
+          </td>
+          {% endfor %}
+          {% endif %}
+          
+        </table>
+      
+    </body>
+  </html>

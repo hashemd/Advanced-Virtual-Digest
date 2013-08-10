@@ -1,0 +1,40 @@
+application: duennwalddigest
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /json
+  static_dir: js
+
+- url: /css
+  static_dir: css
+
+- url: /master.*
+  script: master.application
+  login: admin
+
+- url: /autofill.*
+  script: autofill.application
+
+- url: /sequences.*
+  script: sequences.application
+
+- url: /tests.*
+  script: tests.application
+
+- url: /dbcheck.*
+  script: tests.application
+
+- url: /.*
+  script: main.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+
+builtins:
+- deferred: on

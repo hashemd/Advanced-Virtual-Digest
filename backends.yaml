@@ -1,0 +1,6 @@
+backends:
+- name: builder
+  class: B2
+  instances: 3
+  options: dynamic
+  start: builder.py

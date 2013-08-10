@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>
+      "Duennwald Digest Tool - Results"
+  </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <html lang="en">
+  </head>
+  
+  <body>
+    <h1>
+      Duennwald Lab Digest Tool 
+    </h1>
+    <p>
+      <h3>
+        {{title}} 
+    </h3>
+  </p>
+  
+  <table cellpadding=5 style="table-layout: fixed; width: 100%">
+    {%for heading in headings %}
+    <th align=left>
+      {{heading}} 
+    </th>
+    {% endfor %}
+    {% for result in results %}
+    <tr {{ loop.cycle('bgcolor="whitesmoke"', 'bgcolor="white"') }} valign=TOP>
+      <td style="word-wrap: break-word">
+        {{result[0]}} 
+      </td>
+      {% if result[1]  is string %}
+      <td style="word-wrap: break-word">
+        {{result[1]}} 
+      </td>
+      {% else %}
+      <td style="word-wrap: break-word">
+        {% for val in result[1] %}
+        {{val}}
+        <br />
+        {% endfor %} 
+      </td>
+      {% endif %}
+      {% endfor %}
+    </table>
+  
+  </body>
+</html>

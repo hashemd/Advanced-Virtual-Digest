@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+  <title>
+      Duennwald Digest Tool - Edit Sequences
+    </title>
+    <link rel="stylesheet" type="text/css" href="/css/sequences.css">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js" >
+    </script>
+    
+    <html lang="en">
+      
+      {% if editseq %}
+      <body>
+        <h1>
+          Duennwald Lab Digest Tool - Edit Sequence
+        </h1>
+        
+        <form id="createseq" action="editseq" method="post">
+          <h3>
+            Edit Sequence
+          </h3>
+          <h5> Numbers and spaces ok. FASTA not supported.</h5>
+          <input type="hidden" name="origname" value={{seqname}}>
+          Name:   
+          <input id="editname" style="width:400px;" type="text" name="name" value={{seqname}}>
+          <p style="margin: 5px 5px 5px 5px">
+          </p>
+          Sequence:
+          <br>
+          
+          <textarea id="editseq" name="sequence" style="width:400px; height:400px;" >
+            {{results}}
+          </textarea>
+          <br>
+          <span style="float:left;">
+            <p style="margin: 5px 5px 5px 5px">
+            </p>
+            <input name="editseq" type="submit" value="Update" />
+            
+            <input name="delseq" type="submit" value="Delete"/>
+          </form>
+        </span>
+        <form action="/" method="get">
+          <p style="margin: 5px 5px 5px 5px">
+            </p>
+          <input type="submit" value="Cancel" />
+        </form>
+        
+      </body>
+      {% else %}
+      <body>
+        <h1>
+          Duennwald Lab Digest Tool - Saved Sequences 
+        </h1>
+        <form id="createseq" action="/sequences/createseq" method = "post">
+          <h3>
+            Save New Sequence
+          </h3>
+          <h5> Numbers and spaces ok. FASTA not supported. </h5>
+          <input id="seqname" style="width:400px;" type="text" name="name" value="Enter sequence name..">
+          <p style="margin: 5px 5px 5px 5px">
+          </p>
+          <input id="sequence" style="width:400px;" type="text" name="sequence" value="Enter sequence..">
+          <p style="margin: 5px 5px 5px 5px">
+          </p>
+          <span style="float:left;">
+            <input name="createseq" type="submit" value="Submit" />
+          </form>
+        </span>
+        <form action="/" method="get">
+          <input type="submit" value="Cancel" />
+        </form>
+        
+        {% if results %}
+        <p>
+          <h3>
+            List of Stored Sequences
+        </h3>
+      </p>
+      <form id="editseq" action="sequences" method = "post">
+        <table cellpadding=5 style="table-layout: fixed; width: 100%">
+          <th align=left>
+            Name
+          </th>
+          <tr valign=TOP>
+            {% for n in range(0,results|count, 1) %}
+            <td {{ loop.cycle('bgcolor="whitesmoke"', 'bgcolor="white"') }} style="word-wrap: break-word; display:block;">
+              <a href="/sequences/editseq?seqname={{results[n].name}}">
+                {{results[n].name}}
+              </a>
+            </td>
+            {% endfor %}
+          </tr>
+        </table>
+        <span style="float:left;">
+          <form action="/" method="get">
+            <input type="submit" value="Cancel" />
+          </form>
+        </span>
+        
+        {% endif %}{% endif %}
+      </body>
+    </html>
